@@ -1,0 +1,15 @@
+/* Estilos personalizados adicionais */
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: #020617;
+    color: #f8fafc;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+}
+
+/* Transições suaves e efeitos */
+.group:hover img {
+    transform: scale(1.05);
+}

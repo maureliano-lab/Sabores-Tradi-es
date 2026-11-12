@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LAGOSTA — Sabores & Tradições</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body class="bg-slate-950 text-slate-100 font-sans selection:bg-amber-500 selection:text-slate-950">
+
+    <!-- Header / Navbar -->
+    <header class="fixed top-0 left-0 w-full z-50 bg-slate-950/80 backdrop-blur-md border-b border-slate-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+            <a href="#inicio" class="flex items-center gap-3 group">
+                <div class="w-10 h-10 rounded-full bg-gradient-to-tr from-cyan-500 to-amber-500 flex items-center justify-center text-slate-950 font-bold text-xl shadow-lg group-hover:scale-105 transition">
+                    L
+                </div>
+                <div>
+                    <span class="text-xl font-black tracking-wider bg-gradient-to-r from-cyan-400 via-teal-300 to-amber-400 bg-clip-text text-transparent">LAGOSTA</span>
+                    <span class="block text-xs uppercase tracking-widest text-slate-400 font-semibold">Sabores & Tradições</span>
+                </div>
+            </a>
+
+            <nav class="hidden md:flex items-center gap-8 font-medium text-sm">
+                <a href="#inicio" class="hover:text-cyan-400 transition">Início</a>
+                <a href="#rio" class="hover:text-cyan-400 transition">Rio de Janeiro</a>
+                <a href="#pernambuco" class="hover:text-amber-400 transition">Pernambuco</a>
+                <a href="#curiosidades" class="hover:text-teal-400 transition">Curiosidades</a>
+                <a href="#quiz" class="hover:text-amber-400 transition">Quiz</a>
+                <button onclick="mostrarCuriosidadeAleatoria()" class="bg-gradient-to-r from-cyan-500 to-teal-500 hover:from-cyan-400 hover:to-teal-400 text-slate-950 px-4 py-2 rounded-full font-bold shadow-md transition transform hover:-translate-y-0.5">
+                    <i class="fa-solid fa-dice mr-1"></i> Me Surpreenda!
+                </button>
+            </nav>
+
+            <button id="menu-btn" class="md:hidden text-slate-300 hover:text-white text-2xl focus:outline-none">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+        </div>
+
+        <!-- Mobile Nav Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-slate-900 border-b border-slate-800 px-6 py-4 space-y-3 font-medium">
+            <a href="#inicio" class="block hover:text-cyan-400 transition">Início</a>
+            <a href="#rio" class="block hover:text-cyan-400 transition">Rio de Janeiro</a>
+            <a href="#pernambuco" class="block hover:text-amber-400 transition">Pernambuco</a>
+            <a href="#curiosidades" class="block hover:text-teal-400 transition">Curiosidades</a>
+            <a href="#quiz" class="block hover:text-amber-400 transition">Quiz</a>
+            <button onclick="mostrarCuriosidadeAleatoria()" class="w-full text-center bg-gradient-to-r from-cyan-500 to-teal-500 text-slate-950 py-2 rounded-full font-bold shadow-md">
+                <i class="fa-solid fa-dice mr-1"></i> Me Surpreenda!
+            </button>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="inicio" class="relative min-h-screen flex items-center justify-center pt-20 overflow-hidden">
+        <div class="absolute inset-0 z-0">
+            <img src="Sabores e Tradições/Rio.jpg" alt="Rio de Janeiro e Pernambuco" class="w-full h-full object-cover opacity-30 scale-105 animate-pulse duration-1000">
+            <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/70 to-transparent"></div>
+        </div>
+
+        <div class="relative z-10 max-w-5xl mx-auto px-4 text-center py-20">
+            <span class="inline-block py-1.5 px-4 rounded-full bg-cyan-500/10 border border-cyan-500/30 text-cyan-400 text-xs sm:text-sm font-semibold tracking-widest uppercase mb-6 backdrop-blur-sm">
+                Guia Definitivo de Turismo Gastronômico e Cultural
+            </span>
+            <h1 class="text-4xl sm:text-6xl lg:text-7xl font-black tracking-tight mb-8 leading-tight">
+                Descubra a Alma do <span class="bg-gradient-to-r from-cyan-400 to-teal-300 bg-clip-text text-transparent">Rio</span> e de <span class="bg-gradient-to-r from-amber-400 to-orange-400 bg-clip-text text-transparent">Pernambuco</span>
+            </h1>
+            <p class="text-lg sm:text-xl text-slate-300 max-w-3xl mx-auto mb-10 font-normal leading-relaxed">
+                Uma imersão completa pelas cores, ritmos, sabores e monumentos que definem a identidade do litoral carioca e a rica tradição nordestina.
+            </p>
+            <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+                <a href="#rio" class="w-full sm:w-auto px-8 py-4 rounded-xl bg-cyan-500 hover:bg-cyan-400 text-slate-950 font-bold shadow-lg shadow-cyan-500/20 transition transform hover:-translate-y-1">
+                    <i class="fa-solid fa-water mr-2"></i> Explorar Rio de Janeiro
+                </a>
+                <a href="#pernambuco" class="w-full sm:w-auto px-8 py-4 rounded-xl bg-amber-500 hover:bg-amber-400 text-slate-950 font-bold shadow-lg shadow-amber-500/20 transition transform hover:-translate-y-1">
+                    <i class="fa-solid fa-sun mr-2"></i> Explorar Pernambuco
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Rio de Janeiro Section -->
+    <section id="rio" class="py-24 relative bg-slate-900/50 border-t border-slate-800/60">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row items-center gap-12 mb-16">
+                <div class="w-full md:w-1/2">
+                    <span class="text-cyan-400 font-bold uppercase tracking-widest text-xs">Destino Litorâneo & Urbano</span>
+                    <h2 class="text-3xl sm:text-5xl font-black mt-2 mb-6">Rio de Janeiro</h2>
+                    <p class="text-slate-300 text-lg leading-relaxed mb-6">
+                        Conhecida mundialmente como a Cidade Maravilhosa, o Rio de Janeiro combina belezas naturais deslumbrantes com uma vibrante cultura urbana, ritmos contagiantes e uma culinária de boteco incomparável.
+                    </p>
+                    <div class="grid grid-cols-2 gap-4">
+                        <div class="bg-slate-900 border border-slate-800 p-4 rounded-xl">
+                            <i class="fa-solid fa-mountain-sun text-cyan-400 text-xl mb-2"></i>
+                            <h3 class="font-bold text-white">Paisagens Icônicas</h3>
+                            <p class="text-xs text-slate-400">Cristo Redentor, Pão de Açúcar e praias lendárias.</p>
+                        </div>
+                        <div class="bg-slate-900 border border-slate-800 p-4 rounded-xl">
+                            <i class="fa-solid fa-music text-cyan-400 text-xl mb-2"></i>
+                            <h3 class="font-bold text-white">Samba & Carnaval</h3>
+                            <p class="text-xs text-slate-400">O ritmo pulsante das rodas e da Sapucaí.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="w-full md:w-1/2">
+                    <div class="relative group rounded-2xl overflow-hidden border border-cyan-500/20 shadow-2xl shadow-cyan-950/50">
+                        <img src="Sabores e Tradições/Rio.jpg" alt="Rio de Janeiro" class="w-full h-[400px] object-cover group-hover:scale-105 transition duration-500">
+                        <div class="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent flex items-end p-6">
+                            <div>
+                                <span class="text-cyan-400 text-xs font-bold uppercase tracking-wider">Vista Panorâmica</span>
+                                <h3 class="text-xl font-bold text-white">Cristo Redentor e Baía de Guanabara</h3>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Gastronomia Carioca -->
+            <div class="mb-16">
+                <h3 class="text-2xl font-black mb-8 flex items-center gap-3">
+                    <i class="fa-solid fa-utensils text-cyan-400"></i> Gastronomia Típica Carioca
+                </h3>
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                    <!-- Feijoada -->
+                    <div class="bg-slate-900 border border-slate-800 rounded-2xl overflow-hidden group hover:border-cyan-500/50 transition">
+                        <div class="h-48 overflow-hidden relative">
+                            <img src="Sabores e Tradições/feijoada.jpg" alt="Feijoada carioca" class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
+                        </div>
+                        <div class="p-5">
+                            <h4 class="font-bold text-lg mb-2 text-white">Feijoada Carioca</h4>
+                            <p class="text-sm text-slate-400 mb-4 line-clamp-2">Feijão preto cozido com carnes nobres, servido com arroz, farofa, couve e laranja.</p>
+                            <button onclick="abrirModal('Feijoada Carioca', 'Prato símbolo do Brasil e tradição aos sábados no Rio. Acompanha arroz branco, farofa crocante na manteiga, couve finamente cortada e rodelas de laranja.', 'Sabores e Tradições/feijoada.jpg')" class="text-cyan-400 text-sm font-bold flex items-center gap-1 hover:underline">
+                                Saber mais <i class="fa-solid fa-arrow-right text-xs"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <!-- Biscoito Globo com Mate -->
+                    <div class="bg-slate-900 border border-slate-800 rounded-2xl overflow-hidden group hover:border-cyan-500/50 transition">
+                        <div class="h-48 overflow-hidden relative">
+                            <img src="Sabores e Tradições/mate-biscoito-globo.jpg" alt="Biscoito Globo com mate" class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
+                        </div>
+                        <div class="p-5">
+                            <h4 class="font-bold text-lg mb-2 text-white">Biscoito Globo com Mate</h4>
+                            <p class="text-sm text-slate-400 mb-4 line-clamp-2">A dupla mais clássica das praias cariocas: biscoito de polvilho e mate gelado no galão.</p>
+                            <button onclick="abrirModal('Biscoito Globo com Mate', 'O lanche oficial das areias de Copacabana e Ipanema. O biscoito de polvilho (doce ou salgado) harmoniza perfeitamente com o mate gelado vendido pelos ambulantes.', 'Sabores e Tradições/mate-biscoito-globo.jpg')" class="text-cyan-400 text-sm font-bold flex items-center gap-1 hover:underline">
+                                Saber mais <i class="fa-solid fa-arrow-right text-xs"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <!-- Bolinho de Bacalhau -->
+                    <div class="bg-slate-900 border border-slate-800 rounded-2xl overflow-hidden group hover:border-cyan-500/50 transition">
+                        <div class="h-48 overflow-hidden relative">
+                            <img src="Sabores e Tradições/bolinho-de-bacalhau.jpg" alt="Bolinho de bacalhau" class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
+                        </div>
+                        <div class="p-5">
+                            <h4 class="font-bold text-lg mb-2 text-white">Bolinho de Bacalhau</h4>
+                            <p class="text-sm text-slate-400 mb-4 line-clamp-2">Crocante por fora e macio por dentro, indispensável nos botecos tradicionais do centro e da zona sul.</p>
+                            <button onclick="abrirModal('Bolinho de Bacalhau', 'Herança portuguesa muito presente na cultura boêmia carioca. Feito com batata, bacalhau desfiado, salsinha e fritado na temperatura ideal.', 'Sabores e Tradições/bolinho-de-bacalhau.jpg')" class="text-cyan-400 text-sm font-bold flex items-center gap-1 hover:underline">
+                                Saber mais <i class="fa-solid fa-arrow-right text-xs"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <!-- Petiscos de Boteco -->
+                    <div class="bg-slate-900 border border-slate-800 rounded-2xl overflow-hidden group hover:border-cyan-500/50 transition">
+                        <div class="h-48 overflow-hidden relative">
+                            <img src="Sabores e Tradições/petiscos-de-boteco.jpg" alt="Petiscos de boteco" class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
+                        </div>
+                        <div class="p-5">
+                            <h4 class="font-bold text-lg mb-2 text-white">Petiscos de Boteco</h4>
+                            <p class="text-sm text-slate-400 mb-4 line-clamp-2">Variedade de quitutes como carne seca com aipim frito, linguiça acebolada e pastéis.</p>
+                            <button onclick="abrirModal('Petiscos de Boteco', 'O boteco carioca é uma instituição cultural. Acompanhados de uma cerveja gelada, os petiscos reúnem amigos em animadas conversas de calçada.', 'Sabores e Tradições/petiscos-de-boteco.jpg')" class="text-cyan-400 text-sm font-bold flex items-center gap-1 hover:underline">
+                                Saber mais <i class="fa-solid fa-arrow-right text-xs"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Manifestações Culturais Rio -->
+            <div>
+                <h3 class="text-2xl font-black mb-8 flex items-center gap-3">
+                    <i class="fa-solid fa-masks-theater text-cyan-400"></i> Tradições Culturais
+                </h3>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <div class="bg-slate-900 border border-slate-800 rounded-2xl overflow-hidden flex flex-col sm:flex-row group">
+                        <div class="sm:w-1/2 h-56 sm:h-auto overflow-hidden">
+                            <img src="Sabores e Tradições/samba.jpg" alt="Samba carioca" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                        </div>
+                        <div class="sm:w-1/2 p-6 flex flex-col justify-between">
+                            <div>
+                                <span class="text-cyan-400 text-xs font-bold uppercase tracking-wider">Patrimônio Vivo</span>
+                                <h4 class="text-xl font-bold text-white mt-1 mb-3">O Samba</h4>
+                                <p class="text-sm text-slate-400">Nascido nos morros e redutos cariocas, o samba embala as rodas de calçada, Lapa e quintais tradicionais.</p>
+                            </div>
+                            <button onclick="abrirModal('O Samba', 'O samba carioca é a batida que une o povo. Seja no Cacique de Ramos, na Lapa ou nas escolas de samba, sua cadência é a verdadeira trilha sonora do Rio.', 'Sabores e Tradições/samba.jpg')" class="mt-4 text-cyan-400 text-sm font-bold flex items-center gap-1 hover:underline">
+                                Descobrir mais <i class="fa-solid fa-arrow-right text-xs"></i>
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="bg-slate-900 border border-slate-800 rounded-2xl overflow-hidden flex flex-col sm:flex-row group">
+                        <div class="sm:w-1/2 h-56 sm:h-auto overflow-hidden">
+                            <img src="Sabores e Tradições/carnaval-carioca.jpg" alt="Carnaval Carioca" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                        </div>
+                        <div class="sm:w-1/2 p-6 flex flex-col justify-between">
+                            <div>
+                                <span class="text-cyan-400 text-xs font-bold uppercase tracking-wider">Espetáculo Mundial</span>
+                                <h4 class="text-xl font-bold text-white mt-1 mb-3">Carnaval Carioca</h4>
+                                <p class="text-sm text-slate-400">O maior espetáculo da Terra na Marquês de Sapucaí e os blocos de rua que tomam conta de toda a cidade.</p>
+                            </div>
+                            <button onclick="abrirModal('Carnaval Carioca', 'A celebração máxima da cultura popular brasileira. O desfile das escolas de samba e os blocos de rua transformam o Rio em pura alegria e cor.', 'Sabores e Tradições/carnaval-carioca.jpg')" class="mt-4 text-cyan-400 text-sm font-bold flex items-center gap-1 hover:underline">
+                                Descobrir mais <i class="fa-solid fa-arrow-right text-xs"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pernambuco Section -->
+    <section id="pernambuco" class="py-24 relative bg-slate-950 border-t border-slate-800/60">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row-reverse items-center gap-12 mb-16">
+                <div class="w-full md:w-1/2">
+                    <span class="text-amber-400 font-bold uppercase tracking-widest text-xs">Cultura Nordestina & História</span>
+                    <h2 class="text-3xl sm:text-5xl font-black mt-2 mb-6">Pernambuco</h2>
+                    <p class="text-slate-300 text-lg leading-relaxed mb-6">
+                        Berço de uma das culturas mais ricas do Brasil, Pernambuco transborda história colonial, frevo contagiante, arte popular única e uma culinária inesquecível que conquista qualquer paladar.
+                    </p>
+                    <div class="grid grid-cols-2 gap-4">
+                        <div class="bg-slate-900 border border-slate-800 p-4 rounded-xl">
+                            <i class="fa-solid fa-landmark text-amber-400 text-xl mb-2"></i>
+                            <h3 class="font-bold text-white">Patrimônio Histórico</h3>
+                            <p class="text-xs text-slate-400">Olinda, Recife Antigo e o frevo de sombrinha.</p>
+                        </div>
+                        <div class="bg-slate-900 border border-slate-800 p-4 rounded-xl">
+                            <i class="fa-solid fa-fire text-amber-400 text-xl mb-2"></i>
+                            <h3 class="font-bold text-white">Festas Populares</h3>
+                            <p class="text-xs text-slate-400">O maior São João do mundo e o Carnaval colorido.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="w-full md:w-1/2">
+                    <div class="relative group rounded-2xl overflow-hidden border border-amber-500/20 shadow-2xl shadow-amber-950/50">
+                        <img src="Sabores e Tradições/pernambuco.jpg" alt="Pernambuco" class="w-full h-[400px] object-cover group-hover:scale-105 transition duration-500">
+                        <div class="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent flex items-end p-6">
+                            <div>
+                                <span class="text-amber-400 text-xs font-bold uppercase tracking-wider">Arquitetura Colonial</span>
+                                <h3 class="text-xl font-bold text-white">Recife Antigo e suas Cores</h3>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Gastronomia Pernambucana -->
+            <div class="mb-16">
+                <h3 class="text-2xl font-black mb-8 flex items-center gap-3">
+                    <i class="fa-solid fa-utensils text-amber-400"></i> Gastronomia Típica Pernambucana
+                </h3>
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                    <!-- Bolo de Rolo -->
+                    <div class="bg-slate-900 border border-slate-800 rounded-2xl overflow-hidden group hover:border-amber-500/50 transition">
+                        <div class="h-48 overflow-hidden relative">
+                            <img src="Sabores e Tradições/bolo-de-rolo.jpg" alt="Bolo de rolo" class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
+                        </div>
+                        <div class="p-5">
+                            <h4 class="font-bold text-lg mb-2 text-white">Bolo de Rolo</h4>
+                            <p class="text-sm text-slate-400 mb-4 line-clamp-2">Patrimônio cultural de Pernambuco, com finíssimas camadas de massa e doce de goiaba artesanal.</p>
+                            <button onclick="abrirModal('Bolo de Rolo', 'Feito com uma massa delicadíssima enrolada com doce de goiaba derretido. Sua origem remonta aos tempos coloniais com influências portuguesas e adaptações locais.', 'Sabores e Tradições/bolo-de-rolo.jpg')" class="text-amber-400 text-sm font-bold flex items-center gap-1 hover:underline">
+                                Saber mais <i class="fa-solid fa-arrow-right text-xs"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <!-- Cartola -->
+                    <div class="bg-slate-900 border border-slate-800 rounded-2xl overflow-hidden group hover:border-amber-500/50 transition">
+                        <div class="h-48 overflow-hidden relative">
+                            <img src="Sabores e Tradições/cartola.jpg" alt="Cartola" class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
+                        </div>
+                        <div class="p-5">
+                            <h4 class="font-bold text-lg mb-2 text-white">Cartola</h4>
+                            <p class="text-sm text-slate-400 mb-4 line-clamp-2">Sobremesa tradicional com banana frita, queijo manteiga derretido, açúcar e canela.</p>
+                            <button onclick="abrirModal('Cartola', 'Criada nos engenhos pernambucanos, essa sobremesa une o salgado do queijo manteiga (ou queijo coalho) com a doçura da banana e o toque aromático da canela.', 'Sabores e Tradições/cartola.jpg')" class="text-amber-400 text-sm font-bold flex items-center gap-1 hover:underline">
+                                Saber mais <i class="fa-solid fa-arrow-right text-xs"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <!-- Tapioca -->
+                    <div class="bg-slate-900 border border-slate-800 rounded-2xl overflow-hidden group hover:border-amber-500/50 transition">
+                        <div class="h-48 overflow-hidden relative">
+                            <img src="Sabores e Tradições/tapioca.jpg" alt="Tapioca" class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
+                        </div>
+                        <div class="p-5">
+                            <h4 class="font-bold text-lg mb-2 text-white">Tapioca</h4>
+                            <p class="text-sm text-slate-400 mb-4 line-clamp-2">Fécula de mandioca hidratada na chapa, recheada com carne de sol, queijo ou coco.</p>
+                            <button onclick="abrirModal('Tapioca', 'Herança indígena milenar, a tapioca é símbolo de afeto nas feiras e litorais nordestinos. Crocante por fora e macia por dentro com recheios variados.', 'Sabores e Tradições/tapioca.jpg')" class="text-amber-400 text-sm font-bold flex items-center gap-1 hover:underline">
+                                Saber mais <i class="fa-solid fa-arrow-right text-xs"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <!-- Carne de Sol com Macaxeira -->
+                    <div class="bg-slate-900 border border-slate-800 rounded-2xl overflow-hidden group hover:border-amber-500/50 transition">
+                        <div class="h-48 overflow-hidden relative">
+                            <img src="Sabores e Tradições/carne-de-sol-macaxeira.jpg" alt="Carne de sol com macaxeira" class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
+                        </div>
+                        <div class="p-5">
+                            <h4 class="font-bold text-lg mb-2 text-white">Carne de Sol com Macaxeira</h4>
+                            <p class="text-sm text-slate-400 mb-4 line-clamp-2">Carne suculenta curada ao sol, servida com macaxeira cozida ou frita na manteiga de garrafa.</p>
+                            <button onclick="abrirModal('Carne de Sol com Macaxeira', 'Prato robusto e reconfortante do sertão pernambucano. A macaxeira (mandioca) e a carne de sol ganham um sabor inigualável com a manteiga de garrafa.', 'Sabores e Tradições/carne-de-sol-macaxeira.jpg')" class="text-amber-400 text-sm font-bold flex items-center gap-1 hover:underline">
+                                Saber mais <i class="fa-solid fa-arrow-right text-xs"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Manifestações Culturais Pernambuco -->
+            <div>
+                <h3 class="text-2xl font-black mb-8 flex items-center gap-3">
+                    <i class="fa-solid fa-feather text-amber-400"></i> Tradições Culturais
+                </h3>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <div class="bg-slate-900 border border-slate-800 rounded-2xl overflow-hidden flex flex-col sm:flex-row group">
+                        <div class="sm:w-1/2 h-56 sm:h-auto overflow-hidden">
+                            <img src="Sabores e Tradições/frevo.jpg" alt="Frevo pernambucano" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                        </div>
+                        <div class="sm:w-1/2 p-6 flex flex-col justify-between">
+                            <div>
+                                <span class="text-amber-400 text-xs font-bold uppercase tracking-wider">Patrimônio Cultural da Humanidade</span>
+                                <h4 class="text-xl font-bold text-white mt-1 mb-3">O Frevo</h4>
+                                <p class="text-sm text-slate-400">Ritmo acelerado, passos acrobáticos e as inconfundíveis sombrinhas coloridas que marcam o carnaval de rua.</p>
+                            </div>
+                            <button onclick="abrirModal('O Frevo', 'Ritmo frenético e contagiante reconhecido pela UNESCO. Os passistas realizam verdadeiras acrobacias embaladas por metais e sopros estridentes.', 'Sabores e Tradições/frevo.jpg')" class="mt-4 text-amber-400 text-sm font-bold flex items-center gap-1 hover:underline">
+                                Descobrir mais <i class="fa-solid fa-arrow-right text-xs"></i>
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="bg-slate-900 border border-slate-800 rounded-2xl overflow-hidden flex flex-col sm:flex-row group">
+                        <div class="sm:w-1/2 h-56 sm:h-auto overflow-hidden">
+                            <img src="Sabores e Tradições/sao-joao.jpg" alt="São João em Pernambuco" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                        </div>
+                        <div class="sm:w-1/2 p-6 flex flex-col justify-between">
+                            <div>
+                                <span class="text-amber-400 text-xs font-bold uppercase tracking-wider">Festa Junina</span>
+                                <h4 class="text-xl font-bold text-white mt-1 mb-3">São João de Caruaru</h4>
+                                <p class="text-sm text-slate-400">O maior e mais autêntico festejo nordestino com muito forró pé-de-serra, bandeirolas e comidas de milho.</p>
+                            </div>
+                            <button onclick="abrirModal('São João', 'A grande festa do sertão pernambucano. Caruaru e Caruaru tornam-se o epicentro do forró, quadrilhas gigantes e muita alegria junina.', 'Sabores e Tradições/sao-joao.jpg')" class="mt-4 text-amber-400 text-sm font-bold flex items-center gap-1 hover:underline">
+                                Descobrir mais <i class="fa-solid fa-arrow-right text-xs"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Curiosidades Section -->
+    <section id="curiosidades" class="py-24 bg-slate-900/50 border-t border-slate-800/60">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <span class="text-teal-400 font-bold uppercase tracking-widest text-xs">Você Sabia?</span>
+            <h2 class="text-3xl sm:text-5xl font-black mt-2 mb-4">Curiosidades de Rio & Pernambuco</h2>
+            <p class="text-slate-400 max-w-2xl mx-auto mb-16">Descubra fatos fascinantes sobre a história, gastronomia e tradições que unem esses dois gigantes da cultura brasileira.</p>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-left">
+                <div class="bg-slate-900 border border-slate-800 p-8 rounded-2xl relative overflow-hidden group hover:border-teal-500/50 transition">
+                    <div class="absolute top-0 right-0 w-32 h-32 bg-teal-500/5 rounded-full blur-2xl group-hover:bg-teal-500/10 transition"></div>
+                    <div class="w-12 h-12 rounded-xl bg-teal-500/10 text-teal-400 flex items-center justify-center text-xl font-bold mb-6">01</div>
+                    <h3 class="text-xl font-bold mb-3 text-white">A Origem do Biscoito Globo</h3>
+                    <p class="text-sm text-slate-400 leading-relaxed">Criado originalmente em São Paulo por imigrantes italianos em 1952, o biscoito encontrou no Rio de Janeiro sua verdadeira pátria e o símbolo definitivo das praias cariocas.</p>
+                </div>
+
+                <div class="bg-slate-900 border border-slate-800 p-8 rounded-2xl relative overflow-hidden group hover:border-amber-500/50 transition">
+                    <div class="absolute top-0 right-0 w-32 h-32 bg-amber-500/5 rounded-full blur-2xl group-hover:bg-amber-500/10 transition"></div>
+                    <div class="w-12 h-12 rounded-xl bg-amber-500/10 text-amber-400 flex items-center justify-center text-xl font-bold mb-6">02</div>
+                    <h3 class="text-xl font-bold mb-3 text-white">O Doce do Rei</h3>
+                    <p class="text-sm text-slate-400 leading-relaxed">O famoso bolo de rolo pernambucano descende do português "colchão de noiva", mas ganhou recheio de goiaba em homenagem à rica produção de cana e goiabas da região.</p>
+                </div>
+
+                <div class="bg-slate-900 border border-slate-800 p-8 rounded-2xl relative overflow-hidden group hover:border-cyan-500/50 transition">
+                    <div class="absolute top-0 right-0 w-32 h-32 bg-cyan-500/5 rounded-full blur-2xl group-hover:bg-cyan-500/10 transition"></div>
+                    <div class="w-12 h-12 rounded-xl bg-cyan-500/10 text-cyan-400 flex items-center justify-center text-xl font-bold mb-6">03</div>
+                    <h3 class="text-xl font-bold mb-3 text-white">Patrimônio Imaterial</h3>
+                    <p class="text-sm text-slate-400 leading-relaxed">Tanto o Frevo quanto o Samba de Roda e o Carnaval foram reconhecidos como Patrimônio Cultural do Brasil pelo IPHAN devido à sua relevância histórica e artística.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Quiz Section -->
+    <section id="quiz" class="py-24 bg-slate-950 border-t border-slate-800/60">
+        <div class="max-w-3xl mx-auto px-4">
+            <div class="text-center mb-12">
+                <span class="text-amber-400 font-bold uppercase tracking-widest text-xs">Teste seus conhecimentos</span>
+                <h2 class="text-3xl sm:text-5xl font-black mt-2 mb-4">Quiz Cultural LAGOSTA</h2>
+                <p class="text-slate-400">Responda às perguntas abaixo e teste o quanto você sabe sobre o Rio de Janeiro e Pernambuco.</p>
+            </div>
+
+            <div id="quiz-container" class="bg-slate-900 border border-slate-800 rounded-3xl p-6 sm:p-10 shadow-2xl">
+                <!-- Pergunta injetada via JS -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-slate-950 border-t border-slate-900 py-12 text-center text-sm text-slate-500">
+        <div class="max-w-7xl mx-auto px-4 flex flex-col sm:flex-row items-center justify-between gap-6">
+            <div class="flex items-center gap-3">
+                <div class="w-8 h-8 rounded-full bg-gradient-to-tr from-cyan-500 to-amber-500 flex items-center justify-center text-slate-950 font-bold">L</div>
+                <span class="font-bold text-slate-300">LAGOSTA — Sabores & Tradições</span>
+            </div>
+            <p>&copy; 2026 LAGOSTA. Todos os direitos reservados. Turismo Gastronômico e Cultural.</p>
+            <div class="flex gap-4 text-lg">
+                <a href="#inicio" class="hover:text-cyan-400 transition"><i class="fa-solid fa-arrow-up"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Modal para Detalhes -->
+    <div id="modal-detalhe" class="fixed inset-0 z-50 flex items-center justify-center bg-slate-950/80 backdrop-blur-sm hidden p-4">
+        <div class="bg-slate-900 border border-slate-800 rounded-3xl max-w-lg w-full overflow-hidden shadow-2xl transform transition-all">
+            <div class="relative h-60">
+                <img id="modal-img" src="" alt="Detalhe" class="w-full h-full object-cover">
+                <button onclick="fecharModal()" class="absolute top-4 right-4 w-10 h-10 rounded-full bg-slate-950/80 text-white flex items-center justify-center hover:bg-slate-900 transition">
+                    <i class="fa-solid fa-xmark text-lg"></i>
+                </button>
+            </div>
+            <div class="p-6 sm:p-8">
+                <h3 id="modal-titulo" class="text-2xl font-bold mb-3 text-white"></h3>
+                <p id="modal-descricao" class="text-slate-300 text-base leading-relaxed mb-6"></p>
+                <button onclick="fecharModal()" class="w-full py-3 bg-gradient-to-r from-cyan-500 to-teal-500 text-slate-950 font-bold rounded-xl shadow-lg hover:opacity-95 transition">
+                    Fechar
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal de Curiosidade Aleatória / Me Surpreenda -->
+    <div id="modal-surpresa" class="fixed inset-0 z-50 flex items-center justify-center bg-slate-950/80 backdrop-blur-sm hidden p-4">
+        <div class="bg-slate-900 border border-slate-800 rounded-3xl max-w-md w-full p-8 shadow-2xl text-center">
+            <div class="w-16 h-16 rounded-2xl bg-cyan-500/10 text-cyan-400 flex items-center justify-center text-3xl mx-auto mb-6">
+                <i class="fa-solid fa-lightbulb"></i>
+            </div>
+            <span class="text-cyan-400 text-xs font-bold uppercase tracking-wider">Curiosidade Surpresa</span>
+            <h3 class="text-2xl font-bold my-3 text-white">Você sabia?</h3>
+            <p id="surpresa-texto" class="text-slate-300 text-base leading-relaxed mb-8"></p>
+            <div class="flex gap-4">
+                <button onclick="mostrarCuriosidadeAleatoria()" class="flex-1 py-3 bg-slate-800 hover:bg-slate-700 font-bold rounded-xl text-white transition">
+                    Outra Curiosidade
+                </button>
+                <button onclick="fecharSurpresa()" class="flex-1 py-3 bg-cyan-500 hover:bg-cyan-400 font-bold rounded-xl text-slate-950 transition">
+                    Legal!
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
